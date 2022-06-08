@@ -15,7 +15,7 @@ user_number <- as.numeric(user_number)
     print("Your input was invalid! Exiting program.")
   } else {
   
-  # Else store the digits into variables, storage
+  # Else store the digits into variables
     
     # Use modulus 10 to get the remainder ie) digit in the 1s spot
     digit_3 <- user_number %% 10 
