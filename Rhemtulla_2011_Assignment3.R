@@ -110,7 +110,7 @@ while (correct_guesses != length(word) && tries > 0) {
   }
 }
 
-# PRint end of game messages depending on if the person won or lost
+# Print end of game messages depending on if the person won or lost
 if (correct_guesses == length(word)) {
   print(paste0("Congratulations! You won :). It only took you ", total_tries, " tries to guess that the word was ", word_from_dict, "."), quote = FALSE)
 } else {
