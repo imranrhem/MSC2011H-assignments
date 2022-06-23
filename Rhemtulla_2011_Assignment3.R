@@ -2,6 +2,8 @@
 #IMRAN RHEMTULLA
 #JUNE 24, 2022
 
+# TO RUN GAME: Build the function to place into environment and use the function call at the bottom
+
 #' Function - hangman()
 #' --------------------------------
 #' @description: used to run the entire hangman game and eliminate unnecessary 
@@ -21,7 +23,7 @@ hangman <- function() {
   
   # Find the length of the word and set the number of tries for removal if an incorrect answer is provided as a flag value
   
-  tries <- 6 # Traditional hangman allows for 8 incorrect guesses. I want to make it a bit harder
+  tries <- 8 # Traditional hangman allows for 8 incorrect guesses.
   
   # Setup the visual
   visual <- character()
