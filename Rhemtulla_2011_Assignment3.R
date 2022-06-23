@@ -15,7 +15,7 @@ hangman <- function() {
   ###### SETUP FOR GAME #####
   
   # Read word list into the program
-  word_dictionary <- read.table("hangman_words.txt", header = FALSE, sep = "")
+  word_dictionary <- read.table("hangman_words.txt", header = FALSE, sep = "") #words retrieved from https://github.com/Xethron/Hangman/blob/master/words.txt
   
   # Choose a word from the list randomly
   word_from_dict <- sample(word_dictionary$V1, 1, replace = TRUE)
