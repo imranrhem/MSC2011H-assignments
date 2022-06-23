@@ -46,7 +46,7 @@ hangman <- function() {
   
   # Print intro message
   
-  print(paste("Hello! Welcome to Hangman. Currently, the word is", sum(nchar(word)), "letters long."), quote = FALSE)
+  print(paste("Hello! Welcome to Hangman. Currently, the word is", length(word), "letters long."), quote = FALSE)
   print("", quote = FALSE)
   print("RULES:", quote =  FALSE)
   print(paste("You have", tries, "incorrect guesses."), quote = FALSE)
