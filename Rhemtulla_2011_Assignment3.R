@@ -107,14 +107,8 @@ hangman <- function() {
       
       #Update the list of incorrect entries for both words and letters
       wrong <- append(wrong, guess) 
-      
-      
     }
-    
-    
   }
-  
-  
   
   # Print end of game messages depending on if the person won or lost
   if (correct_guesses == length(word)) {
@@ -122,8 +116,6 @@ hangman <- function() {
   } else {
     print(paste0("Sorry! You didn't correctly guess the word :(. The correct word was ", word_from_dict, "."), quote = FALSE)
   }
-  
-  
 }
 
 hangman()
