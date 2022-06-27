@@ -2,6 +2,8 @@
 #IMRAN RHEMTULLA
 #JUNE 24, 2022
 
+# TO RUN GAME: Build the function to place into environment and use the function call at the bottom
+
 #' Function - hangman()
 #' --------------------------------
 #' @description: used to run the entire hangman game and eliminate unnecessary 
@@ -12,11 +14,8 @@ hangman <- function() {
   
   ###### SETUP FOR GAME #####
   
-  # Set the working directory to manage files
-  setwd("C:/Users/Ronny/iCloudDrive/Mbiotech/MSCH2011H/MSC2011H-assignments")
-  
   # Read word list into the program
-  word_dictionary <- read.table("hangman_words.txt", header = FALSE, sep = "")
+  word_dictionary <- read.table("hangman_words.txt", header = FALSE, sep = "") #words retrieved from https://github.com/Xethron/Hangman/blob/master/words.txt
   
   # Choose a word from the list randomly
   word_from_dict <- sample(word_dictionary$V1, 1, replace = TRUE)
@@ -24,13 +23,15 @@ hangman <- function() {
   
   # Find the length of the word and set the number of tries for removal if an incorrect answer is provided as a flag value
   
+<<<<<<< HEAD
   tries <- 8 # Traditional hangman allows for 8 incorrect guesses. I want to make it a bit harder
+=======
+  tries <- 8 # Traditional hangman allows for 8 incorrect guesses.
+>>>>>>> a77fccdddb0f586a0c7bec815fe3861bcb018adb
   
   # Setup the visual
   visual <- character()
-  for (i in 1:sum(nchar(word))) {
-    visual <- c(visual, "_")
-  }
+  visual <- replicate(nchar(word_from_dict), "_")
   
   # Lists for tracking guesses
   wrong <- c("")
@@ -51,7 +52,7 @@ hangman <- function() {
   
   # Print intro message
   
-  print(paste("Hello! Welcome to Hangman. Currently, the word is", sum(nchar(word)), "letters long."), quote = FALSE)
+  print(paste("Hello! Welcome to Hangman. Currently, the word is", length(word), "letters long."), quote = FALSE)
   print("", quote = FALSE)
   print("RULES:", quote =  FALSE)
   print(paste("You have", tries, "incorrect guesses."), quote = FALSE)
@@ -62,7 +63,7 @@ hangman <- function() {
   
   while (correct_guesses != length(word) && tries > 0) {
     # Updates to game and input call
-    print("Correct guesses:")
+    print("Correct guesses:", quote = FALSE)
     cat(visual, sep = " ")
     print("", quote = FALSE)
     
@@ -93,14 +94,12 @@ hangman <- function() {
     } else if (guess %in% word && sum(nchar(guess) == 1)) {
       print("That was a correct guess! Nice job!", quote = FALSE)
       correct_guesses <- correct_guesses + length(which(word == guess))
-      positions <- gregexpr(guess, word_from_dict) # Find location(s) of where the guess is in the word
-      
       total_tries <- total_tries + 1
       
       #Update the visual
-      for (i in 1:length(positions[[1]])){
-        visual[positions[[1]][i]] <- guess
-      } 
+      positions <- gregexpr(guess, word_from_dict) # Find location(s) of where the guess is in the word
+      replacement_positions <- as.vector(positions[[1]][1:length(positions[[1]])])
+      visual <- replace(visual, c(replacement_positions), guess)
       
       #Update the list of right answers to prevent repeats of inputs
       right <- append(right, guess) 
@@ -114,7 +113,6 @@ hangman <- function() {
       
       #Update the list of incorrect entries for both words and letters
       wrong <- append(wrong, guess) 
-      
     }
   }
   
@@ -124,10 +122,7 @@ hangman <- function() {
   } else {
     print(paste0("Sorry! You didn't correctly guess the word :(. The correct word was ", word_from_dict, "."), quote = FALSE)
   }
-  
-  
 }
-
 
 hangman()
 
