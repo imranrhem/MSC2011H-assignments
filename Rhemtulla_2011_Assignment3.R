@@ -24,7 +24,7 @@ hangman <- function() {
   
   # Find the length of the word and set the number of tries for removal if an incorrect answer is provided as a flag value
   
-  tries <- 6 # Traditional hangman allows for 8 incorrect guesses. I want to make it a bit harder
+  tries <- 8 # Traditional hangman allows for 8 incorrect guesses. I want to make it a bit harder
   
   # Setup the visual
   visual <- character()
