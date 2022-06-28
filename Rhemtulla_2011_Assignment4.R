@@ -17,7 +17,6 @@ names(ufo) <- make.names(names(ufo), unique = TRUE)
 ufo$country[ufo$country == ""] <- NA
 ufo$shape[ufo$shape == ""] <- NA
 
-
 ufo <- ufo %>%
   # Remove rows that contain NA for country
   drop_na(country) %>%  
